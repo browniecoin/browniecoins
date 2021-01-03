@@ -19,6 +19,9 @@ Dependencies:
 sudo apt-get install git
  
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+
+sudo add-apt-repository universe
+sudo apt-get update
  
 sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
  
