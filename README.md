@@ -31,6 +31,19 @@ sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt-get update
  
 sudo apt-get install libdb4.8-dev libdb4.8++-dev
+
+$ wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
+$ tar -xzvf db-4.8.30.NC.tar.gz
+$ cd db-4.8.30.NC/build_unix/
+$ ../dist/configure --enable-cxx
+$ make
+$ make install
+
+Tell your system where to find db4.8 
+$ export BDB_INCLUDE_PATH="/usr/local/BerkeleyDB.4.8/include"
+$ export BDB_LIB_PATH="/usr/local/BerkeleyDB.4.8/lib"
+$ ln -s /usr/local/BerkeleyDB.4.8/lib/libdb-4.8.so /usr/lib/libdb-4.8.so
+
  
 sudo apt-get install libminiupnpc-dev
  
