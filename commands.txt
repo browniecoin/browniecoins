@@ -20,7 +20,7 @@ Dependencies:
 
  sudo apt-get install libzmq3-dev
 
- sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler 
+ sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 
  sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
 
@@ -53,10 +53,10 @@ Dependencies:
  sudo apt-get install libminiupnpc-dev
 
  sudo apt-get install libzmq3-dev
- 
+
  sudo apt-get install libssl1.0-dev
 
- sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler 
+ sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 
  sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
 
@@ -67,3 +67,10 @@ Dependencies:
  find . -type f -print0 | xargs -0 sed -i 's/LiteCoin/Funcoin/g'
  find . -type f -print0 | xargs -0 sed -i 's/LITECOIN/FUNCOIN/g'
  find . -type f -print0 | xargs -0 sed -i 's/LTC/FUN/g'
+
+openssl ecparam -genkey -name secp256k1 -out alertkey.pem
+openssl ec -in alertkey.pem -text > alertkey.hex
+openssl ecparam -genkey -name secp256k1 -out testnetalert.pem
+openssl ec -in testnetalert.pem -text > testnetalert.hex
+openssl ecparam -genkey -name secp256k1 -out genesiscoinbase.pem
+openssl ec -in testnetalert.pem -text > genesiscoinbase.hex
