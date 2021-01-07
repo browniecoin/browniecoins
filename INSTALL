@@ -1,0 +1,9 @@
+Building Browniecoin
+
+See doc/readme-qt.rst for instructions on building Browniecoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Browniecoin.
+
+See doc/build-*.txt for instructions on building browniecoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Browniecoin.
