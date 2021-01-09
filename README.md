@@ -1,15 +1,15 @@
-Browniecoin integration/staging tree
-================================
-
 http://www.browniecoins.org
 
-Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2011-2014 Browniecoin Developers
-
-What is Browniecoin?
-----------------
+What is Browniecoins?
 
 Browniecoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
+
+Over the last decade, and since its inception in 2011, brownie coins founded by George Harris, have evolved from the previous novelty Brownie points. Brownie points were an imaginary social currency earned through good deeds done to others. Over the years, a community and cryptocurrency has been established around this idea. Brownie coins were created as a reward system when someone does something deserving a reward. Initially, Brownie points were awarded as novelty points without any monetary value.
+
+Post world war II, brownie stamps were given depending on the purchase of goods. These stamps could later be redeemed for select goods. Brownie stamps or brownie points, were a resemblance of a good deed performed in the society and rewards for purchases made. Brownie points have since carried on to represent a remittance system with a monetary value attached to each coin earned.
+
+Brownie coins have established themselves as part of the cryptocurrency and blockchain narrative that forms a significant part of today’s economy. Brownie coins are an opensource digital currency. Instead of awarding someone brownie points with no value, brownie coins now offer a monetary value. As part of our growth strategy, we are creating specialty products designed for Brownie coins collectors looking to shop with their collection of Brownie coins.
+
  - 2.5 minute block targets
  - subsidy halves in 840k blocks (~4 years)
  - ~84 million total coins
@@ -19,12 +19,12 @@ The rest is the same as Bitcoin.
  - 2016 blocks to retarget difficulty
 
 For more information, as well as an immediately useable, binary version of
-the Browniecoin client sofware, see http://www.browniecoin.org.
+the Browniecoins client sofware, see http://www.browniecoins.org.
 
 License
 -------
 
-Browniecoin is released under the terms of the MIT license. See `COPYING` for more
+Browniecoins is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
 Development process
