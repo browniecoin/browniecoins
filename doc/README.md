@@ -1,47 +1,85 @@
-Browniecoin 0.8.x BETA
-====================
-
-Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2011-2014 Browniecoin Developers
-
-Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
-This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](http://www.openssl.org/). This product includes
-cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.
-
-
-Intro
----------------------
-Browniecoin is a free open source peer-to-peer electronic cash system that is
-completely decentralized, without the need for a central server or trusted
-parties.  Users hold the crypto keys to their own money and transact directly
-with each other, with the help of a P2P network to check for double-spending.
-
+Brownie Core
+=============
 
 Setup
 ---------------------
-You need the Qt4 run-time libraries to run Browniecoin-Qt. On Debian or Ubuntu:
-	`sudo apt-get install libqtgui4`
+Brownie Core is the original Brownie client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Brownie transactions, which requires approximately 22 gigabytes of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+
+To download Brownie Core, visit [browniecoins.org](https://browniecoins.org/).
+
+Running
+---------------------
+The following are some helpful notes on how to run Brownie Core on your native platform.
+
+### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/browniecoin-qt (GUI, 32-bit)
-- bin/32/browniecoind (headless, 32-bit)
-- bin/64/browniecoin-qt (GUI, 64-bit)
-- bin/64/browniecoind (headless, 64-bit)
+- `bin/brownie-qt` (GUI) or
+- `bin/brownied` (headless)
 
-See the documentation at the [Browniecoin Wiki](http://browniecoin.info)
+### Windows
+
+Unpack the files into a directory, and then run brownie-qt.exe.
+
+### macOS
+
+Drag Brownie Core to your applications folder, and then run Brownie Core.
+
+### Need Help?
+
+* See the documentation at the [Brownie Wiki](https://brownie.info/)
 for help and more information.
+* Ask for help on [#brownie](http://webchat.freenode.net?channels=brownie) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net?channels=brownie).
+* Ask for help on the [BrownieTalk](https://brownietalk.io/) forums, in the [Technical Support section](https://brownietalk.io/c/technical-support).
 
-
-Other Pages
+Building
 ---------------------
+The following are developer notes on how to build Brownie Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+
+- [Dependencies](dependencies.md)
+- [macOS Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
-- [OSX Build Notes](build-osx.md)
-- [Windows Build Notes](build-msw.md)
-- [Coding Guidelines](coding.md)
-- [Release Process](release-process.md)
+- [Windows Build Notes](build-windows.md)
+- [FreeBSD Build Notes](build-freebsd.md)
+- [OpenBSD Build Notes](build-openbsd.md)
+- [NetBSD Build Notes](build-netbsd.md)
+- [Gitian Building Guide (External Link)](https://github.com/bitcoin-core/docs/blob/master/gitian-building.md)
+
+Development
+---------------------
+The Brownie repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+
+- [Developer Notes](developer-notes.md)
+- [Productivity Notes](productivity.md)
 - [Release Notes](release-notes.md)
-- [Multiwallet Qt Development](multiwallet-qt.md)
-- [Unit Tests](unit-tests.md)
+- [Release Process](release-process.md)
 - [Translation Process](translation_process.md)
+- [Translation Strings Policy](translation_strings_policy.md)
+- [JSON-RPC Interface](JSON-RPC-interface.md)
+- [Unauthenticated REST Interface](REST-interface.md)
+- [Shared Libraries](shared-libraries.md)
+- [BIPS](bips.md)
+- [Dnsseed Policy](dnsseed-policy.md)
+- [Benchmarking](benchmarking.md)
+
+### Resources
+* Discuss on the [BrownieTalk](https://brownietalk.io/) forums.
+* Discuss general Brownie development on #brownie-dev on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=brownie-dev.
+
+### Miscellaneous
+- [Assets Attribution](assets-attribution.md)
+- [bitcoin.conf Configuration File](bitcoin-conf.md)
+- [Files](files.md)
+- [Fuzz-testing](fuzzing.md)
+- [Reduce Traffic](reduce-traffic.md)
+- [Tor Support](tor.md)
+- [Init Scripts (systemd/upstart/openrc)](init.md)
+- [ZMQ](zmq.md)
+- [PSBT support](psbt.md)
+
+License
+---------------------
+Distributed under the [MIT software license](/COPYING).
+This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](https://www.openssl.org/). This product includes
+cryptographic software written by Eric Young ([eay@cryptsoft.com](mailto:eay@cryptsoft.com)), and UPnP software written by Thomas Bernard.
