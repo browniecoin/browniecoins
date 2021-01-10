@@ -122,6 +122,7 @@ public:
         // release ASAP to avoid it where possible.
         vSeeds.emplace_back("45.32.73.141");
         vSeeds.emplace_back("192.248.188.126");
+        vSeeds.emplace_back("dnsseed.browniecoins.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,26); // B
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,25); // B
