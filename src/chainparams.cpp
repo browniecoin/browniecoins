@@ -126,14 +126,16 @@ public:
 
 
         // If genesis block hash does not match, then generate a new genesis hash.
+
+
         if (consensus.hashGenesisBlock != uint256S("0xYOUR_EXPECTED_GENESIS_HASH")) {
             printf("Searching for genesis block...\n");
 
-            uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-            uint256 thash;
+            arith_uint256 hashTarget = UintToArith256(genesis.nBits);
+            arith_uint256 thash;
 
             while (true) {
-                thash = scrypt_blockhash(BEGIN(genesis.nVersion));
+                thash = UintToArith256(scrypt_blockhash(BEGIN(genesis.nVersion)));
                 if (thash <= hashTarget)
                     break;
 
@@ -152,6 +154,7 @@ public:
             printf("genesis.nNonce = %u \n", genesis.nNonce);
             printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         }
+
 
         assert(consensus.hashGenesisBlock == uint256S("0x"));
         assert(genesis.hashMerkleRoot == uint256S("0x"));
