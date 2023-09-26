@@ -5,8 +5,6 @@
 
 #include <chainparams.h>
 
-#include <arith_uint256.h> // Include this header for arith_uint256
-#include <util.h> // Include this header for UintToArith256
 
 #include <chainparamsseeds.h>
 #include <consensus/merkle.h>
@@ -118,24 +116,7 @@ public:
 
         //std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
         //std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
-        arith_uint256 best = arith_uint256();
-        int n=0;
-        arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
-        while (UintToArith256(genesis.GetHash()) > hashTarget) {
-          arith_uint256 c=UintToArith256(genesis.GetHash());
 
-          if(c < best || n==0)
-            {
-              best = c;
-              n=1;
-              printf("%s %s %s\n",genesis.GetHash().GetHex().c_str(),hashTarget.GetHex().c_str(),
-                 best.GetHex().c_str());
-            }
-
-          ++genesis.nNonce;
-          if (genesis.nNonce == 0) { ++genesis.nTime; }
-        }
-        printf("%s\n",genesis.ToString().c_str());
 
         assert(consensus.hashGenesisBlock == uint256S("0x"));
         assert(genesis.hashMerkleRoot == uint256S("0x"));
@@ -145,8 +126,8 @@ public:
         // This is fine at runtime as we'll fall back to using them as a oneshot if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("45.32.73.141");
-        vSeeds.emplace_back("144.202.113.119");
+        //vSeeds.emplace_back("45.32.73.141");
+        //vSeeds.emplace_back("144.202.113.119");
         vSeeds.emplace_back("dnsseed.browniecoins.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,26); // B
