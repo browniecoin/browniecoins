@@ -98,7 +98,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x"); // 0
+        consensus.defaultAssumeValid = uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -129,8 +129,8 @@ public:
         printf("NEW 2 %s\n", hash.ToString().c_str());
 
 
-        assert(consensus.hashGenesisBlock == uint256S("0x"));
-        assert(genesis.hashMerkleRoot == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97"));
+        assert(genesis.hashMerkleRoot == uint256S("0xeea91073ea3cfa46289db644c88e83d58f84abe6c355448acca0c040228f9582"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -158,7 +158,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0x0")},
+                {  0, uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97")},
             }
         };
 
