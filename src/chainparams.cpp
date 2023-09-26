@@ -94,7 +94,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0xe0feb9e314a113b1a70e8c60a502af65b7ff925f23d8595ec3fa5f53c82ce3f7"); // 0
+        consensus.defaultAssumeValid = uint256S("0x"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -115,8 +115,8 @@ public:
         std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
         std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
-        assert(consensus.hashGenesisBlock == uint256S("Oxe0feb9e314a113b1a70e8c60a502af65b7ff925f23d8595ec3fa5f53c82ce3f7"));
-        assert(genesis.hashMerkleRoot == uint256S("0x"));
+        //assert(consensus.hashGenesisBlock == uint256S("Oxe0feb9e314a113b1a70e8c60a502af65b7ff925f23d8595ec3fa5f53c82ce3f7"));
+        //assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -144,7 +144,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0xe0feb9e314a113b1a70e8c60a502af65b7ff925f23d8595ec3fa5f53c82ce3f7")},
+                {  0, uint256S("0x")},
             }
         };
 
