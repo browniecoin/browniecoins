@@ -115,7 +115,7 @@ public:
         std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
         std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
-        assert(consensus.hashGenesisBlock == uint256S("Oxe0feb9e314a113b1a70e8c60a502af65b7ff925f23d8595ec3fa5f53c82ce3f7"));
+        assert(consensus.hashGenesisBlock == uint256S("0x3433a6a517adc9949d9684cdb569159fe9a2b734168ce11ef6b6b28055a6a815"));
         assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
