@@ -231,8 +231,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("45.32.73.141");
-        vSeeds.emplace_back("192.248.188.126");
+        vSeeds.emplace_back("149.248.19.134");
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,85); // b
