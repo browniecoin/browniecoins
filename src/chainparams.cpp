@@ -94,7 +94,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        //consensus.defaultAssumeValid = uint256S("0x29913fd23951448eabdb964253889c65003784ffd9bbad564019e9939b0d2bf5"); // 0
+        consensus.defaultAssumeValid = uint256S("0x"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -112,11 +112,12 @@ public:
 
         genesis = CreateGenesisBlock(1695713234, 42069420, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
-        std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
-        //assert(consensus.hashGenesisBlock == uint256S("0x29913fd23951448eabdb964253889c65003784ffd9bbad564019e9939b0d2bf5"));
-        //assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        //std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
+        //std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
+
+        assert(consensus.hashGenesisBlock == uint256S("0x"));
+        assert(genesis.hashMerkleRoot == uint256S("0x"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
