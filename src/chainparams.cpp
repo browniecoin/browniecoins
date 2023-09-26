@@ -111,12 +111,44 @@ public:
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
+
+
         genesis = CreateGenesisBlock(1695713234, 42069420, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        //std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
-        //std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
+        std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
+        std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
+        // If genesis block hash does not match, then generate new genesis hash.
+
+
+        // If genesis block hash does not match, then generate a new genesis hash.
+        if (consensus.hashGenesisBlock != uint256S("0xYOUR_EXPECTED_GENESIS_HASH")) {
+            printf("Searching for genesis block...\n");
+
+            uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+            uint256 thash;
+
+            while (true) {
+                thash = scrypt_blockhash(BEGIN(genesis.nVersion));
+                if (thash <= hashTarget)
+                    break;
+
+                if ((genesis.nNonce & 0xFFF) == 0) {
+                    printf("nonce %08X: hash = %s (target = %s)\n", genesis.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
+                }
+
+                ++genesis.nNonce;
+                if (genesis.nNonce == 0) {
+                    printf("NONCE WRAPPED, incrementing time\n");
+                    ++genesis.nTime;
+                }
+            }
+
+            printf("genesis.nTime = %u \n", genesis.nTime);
+            printf("genesis.nNonce = %u \n", genesis.nNonce);
+            printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        }
 
         assert(consensus.hashGenesisBlock == uint256S("0x"));
         assert(genesis.hashMerkleRoot == uint256S("0x"));
