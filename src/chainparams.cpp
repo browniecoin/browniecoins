@@ -5,6 +5,9 @@
 
 #include <chainparams.h>
 
+#include <arith_uint256.h> // Include this header for arith_uint256
+#include <util.h> // Include this header for UintToArith256
+
 #include <chainparamsseeds.h>
 #include <consensus/merkle.h>
 #include <tinyformat.h>
@@ -133,7 +136,7 @@ public:
           if (genesis.nNonce == 0) { ++genesis.nTime; }
         }
         printf("%s\n",genesis.ToString().c_str());
-        
+
         assert(consensus.hashGenesisBlock == uint256S("0x"));
         assert(genesis.hashMerkleRoot == uint256S("0x"));
 
