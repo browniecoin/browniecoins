@@ -314,7 +314,7 @@ public:
 
         UpdateVersionBitsParametersFromArgs(args);
 
-        genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1695713234, 42069420, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         assert(consensus.hashGenesisBlock == uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97"));
         assert(genesis.hashMerkleRoot == uint256S("0xeea91073ea3cfa46289db644c88e83d58f84abe6c355448acca0c040228f9582"));
@@ -328,12 +328,12 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9")},
+                {0, uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97")},
             }
         };
 
         chainTxData = ChainTxData{
-            0,
+            1695713234,
             0,
             0
         };
