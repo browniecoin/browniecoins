@@ -5,7 +5,6 @@
 
 #include <chainparams.h>
 
-
 #include <chainparamsseeds.h>
 #include <consensus/merkle.h>
 #include <tinyformat.h>
@@ -17,9 +16,6 @@
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
-
-#include "uint256.h"  // Include the uint256 header from your Bitcoin-like project.
-#include "arith_uint256.h"  // Include arith_uint256 for CBigNum.
 
 static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesisOutputScript, uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
@@ -55,8 +51,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Brownie Coin becomes world currency as Skynet goes live 05/Oct/2031";
-    const CScript genesisOutputScript = CScript() << ParseHex("62726331716161637068346B6733706163716479346D63387268366C736B37746432383376337936786D72") << OP_CHECKSIG;
+    const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+    const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -98,7 +94,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97"); // 0
+        consensus.defaultAssumeValid = uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -114,31 +110,18 @@ public:
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
-        //python genesis.py -z "Brownie Coin becomes world currency as Skynet goes live 05/Oct/2031" -n 42069420 -t 1695713234
-
-        genesis = CreateGenesisBlock(1695713234, 42069420, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1317972665, 2084524493, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-
-        std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
-        std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
-
-
-        uint256 hash = genesis.GetHash();
-        printf("BLOCK 1 %s\n", consensus.hashGenesisBlock.ToString().c_str());
-        printf("merkle 1 %s\n", genesis.hashMerkleRoot.ToString().c_str());
-        printf("NEW 2 %s\n", hash.ToString().c_str());
-
-
-        assert(consensus.hashGenesisBlock == uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97"));
-        assert(genesis.hashMerkleRoot == uint256S("0xeea91073ea3cfa46289db644c88e83d58f84abe6c355448acca0c040228f9582"));
+        assert(consensus.hashGenesisBlock == uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
+        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
         // This is fine at runtime as we'll fall back to using them as a oneshot if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        //vSeeds.emplace_back("45.32.73.141");
-        //vSeeds.emplace_back("144.202.113.119");
+        vSeeds.emplace_back("45.32.73.141");
+        vSeeds.emplace_back("192.248.188.126");
         vSeeds.emplace_back("dnsseed.browniecoins.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,26); // B
@@ -158,13 +141,13 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97")},
+                {  0, uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2")},
             }
         };
 
         chainTxData = ChainTxData{
             // Data from rpc: getchaintxstats 4096 2cdba8c47858d34cf0e02dfb8733263a3ed8705b1663ec7c158783d77b93e7ee
-            /* nTime    */ 1695713234,
+            /* nTime    */ 1317972665,
             /* nTxCount */ 0,
             /* dTxRate  */ 0
         };
@@ -212,7 +195,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0xe0feb9e314a113b1a70e8c60a502af65b7ff925f23d8595ec3fa5f53c82ce3f7"); //1174621
+        consensus.defaultAssumeValid = uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"); //1174621
 
         pchMessageStart[0] = 0x62; // b
         pchMessageStart[1] = 0x72; // r
@@ -225,13 +208,14 @@ public:
 
         genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        //assert(consensus.hashGenesisBlock == uint256S("0x"));
-        //assert(genesis.hashMerkleRoot == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
+        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("149.248.19.134");
+        vSeeds.emplace_back("45.32.73.141");
+        vSeeds.emplace_back("192.248.188.126");
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,85); // b
@@ -301,7 +285,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97");
+        consensus.defaultAssumeValid = uint256S("0x00");
 
         pchMessageStart[0] = 0x62; // b
         pchMessageStart[1] = 0x72; // r
@@ -314,10 +298,10 @@ public:
 
         UpdateVersionBitsParametersFromArgs(args);
 
-        genesis = CreateGenesisBlock(1695713234, 42069420, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97"));
-        assert(genesis.hashMerkleRoot == uint256S("0xeea91073ea3cfa46289db644c88e83d58f84abe6c355448acca0c040228f9582"));
+        assert(consensus.hashGenesisBlock == uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"));
+        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -328,12 +312,12 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97")},
+                {0, uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9")},
             }
         };
 
         chainTxData = ChainTxData{
-            1695713234,
+            0,
             0,
             0
         };
