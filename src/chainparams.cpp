@@ -301,7 +301,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00");
+        consensus.defaultAssumeValid = uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97");
 
         pchMessageStart[0] = 0x62; // b
         pchMessageStart[1] = 0x72; // r
@@ -316,8 +316,8 @@ public:
 
         genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("0xf27440995b4cdd68510f94425bae2f08b612460ba03258fc8b408c46f9571c97"));
+        assert(genesis.hashMerkleRoot == uint256S("0xeea91073ea3cfa46289db644c88e83d58f84abe6c355448acca0c040228f9582"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
