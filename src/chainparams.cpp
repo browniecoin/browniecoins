@@ -94,7 +94,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"); // 0
+        consensus.defaultAssumeValid = uint256S("0x"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -112,8 +112,8 @@ public:
 
         genesis = CreateGenesisBlock(1317972665, 2084524493, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("Ox"));
+        assert(genesis.hashMerkleRoot == uint256S("0x"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -121,7 +121,7 @@ public:
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
         vSeeds.emplace_back("45.32.73.141");
-        vSeeds.emplace_back("192.248.188.126");
+        vSeeds.emplace_back("144.202.113.119");
         vSeeds.emplace_back("dnsseed.browniecoins.org");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,26); // B
@@ -141,7 +141,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2")},
+                {  0, uint256S("0x")},
             }
         };
 
@@ -195,7 +195,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"); //1174621
+        consensus.defaultAssumeValid = uint256S("0x"); //1174621
 
         pchMessageStart[0] = 0x62; // b
         pchMessageStart[1] = 0x72; // r
@@ -208,8 +208,8 @@ public:
 
         genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x"));
+        assert(genesis.hashMerkleRoot == uint256S("0x"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
