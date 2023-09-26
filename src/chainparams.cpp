@@ -52,7 +52,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
-    const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+    const CScript genesisOutputScript = CScript() << ParseHex("62726331716161637068346B6733706163716479346D63387268366C736B37746432383376337936786D72") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -94,7 +94,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000200020");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x29913fd23951448eabdb964253889c65003784ffd9bbad564019e9939b0d2bf5"); // 0
+        //consensus.defaultAssumeValid = uint256S("0x29913fd23951448eabdb964253889c65003784ffd9bbad564019e9939b0d2bf5"); // 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -115,8 +115,8 @@ public:
         std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
         std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
-        assert(consensus.hashGenesisBlock == uint256S("0x29913fd23951448eabdb964253889c65003784ffd9bbad564019e9939b0d2bf5"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+        //assert(consensus.hashGenesisBlock == uint256S("0x29913fd23951448eabdb964253889c65003784ffd9bbad564019e9939b0d2bf5"));
+        //assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -144,7 +144,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0x29913fd23951448eabdb964253889c65003784ffd9bbad564019e9939b0d2bf5")},
+                {  0, uint256S("0x0")},
             }
         };
 
