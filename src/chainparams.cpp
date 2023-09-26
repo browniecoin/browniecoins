@@ -55,7 +55,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+    const char* pszTimestamp = "Brownie Coin becomes world currency as Skynet goes live 05/Oct/2031";
     const CScript genesisOutputScript = CScript() << ParseHex("62726331716161637068346B6733706163716479346D63387268366C736B37746432383376337936786D72") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -114,7 +114,7 @@ public:
         m_assumed_blockchain_size = 2;
         m_assumed_chain_state_size = 1;
 
-
+        //python genesis.py -z "Brownie Coin becomes world currency as Skynet goes live 05/Oct/2031" -n 42069420 -t 1695713234
 
         genesis = CreateGenesisBlock(1695713234, 42069420, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
@@ -122,38 +122,11 @@ public:
         std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
         std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
 
-        // If genesis block hash does not match, then generate new genesis hash.
 
-
-        // If genesis block hash does not match, then generate a new genesis hash.
-
-
-        if (consensus.hashGenesisBlock != uint256S("0xYOUR_EXPECTED_GENESIS_HASH")) {
-            printf("Searching for genesis block...\n");
-
-            arith_uint256 hashTarget = UintToArith256(genesis.nBits);
-            arith_uint256 thash;
-
-            while (true) {
-                thash = UintToArith256(scrypt_blockhash(BEGIN(genesis.nVersion)));
-                if (thash <= hashTarget)
-                    break;
-
-                if ((genesis.nNonce & 0xFFF) == 0) {
-                    printf("nonce %08X: hash = %s (target = %s)\n", genesis.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
-                }
-
-                ++genesis.nNonce;
-                if (genesis.nNonce == 0) {
-                    printf("NONCE WRAPPED, incrementing time\n");
-                    ++genesis.nTime;
-                }
-            }
-
-            printf("genesis.nTime = %u \n", genesis.nTime);
-            printf("genesis.nNonce = %u \n", genesis.nNonce);
-            printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-        }
+        uint256 hash = genesis.GetHash();
+        printf("BLOCK 1 %s\n", consensus.hashGenesisBlock.ToString().c_str());
+        printf("merkle 1 %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        printf("NEW 2 %s\n", hash.ToString().c_str());
 
 
         assert(consensus.hashGenesisBlock == uint256S("0x"));
