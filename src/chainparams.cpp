@@ -115,7 +115,25 @@ public:
 
         //std::cout << "Genesis Hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
         //std::cout << "MerkleRoot Hash: " << genesis.hashMerkleRoot.ToString() << std::endl;
+        arith_uint256 best = arith_uint256();
+        int n=0;
+        arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
+        while (UintToArith256(genesis.GetHash()) > hashTarget) {
+          arith_uint256 c=UintToArith256(genesis.GetHash());
 
+          if(c < best || n==0)
+            {
+              best = c;
+              n=1;
+              printf("%s %s %s\n",genesis.GetHash().GetHex().c_str(),hashTarget.GetHex().c_str(),
+                 best.GetHex().c_str());
+            }
+
+          ++genesis.nNonce;
+          if (genesis.nNonce == 0) { ++genesis.nTime; }
+        }
+        printf("%s\n",genesis.ToString().c_str());
+        
         assert(consensus.hashGenesisBlock == uint256S("0x"));
         assert(genesis.hashMerkleRoot == uint256S("0x"));
 
