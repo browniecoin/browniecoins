@@ -64,6 +64,13 @@ Build Brownie Core
 
         make deploy
 
+        Library Replacement: If the application is compatible with the Boost library you have (without the "mt" variant), you can try creating a symbolic link from libboost_system.dylib to libboost_system-mt.dylib in the "Frameworks" folder. Open Terminal and navigate to the application's "Frameworks" directory and use the ln command like this:
+
+        bash
+
+        cd /Applications/Brownie-Qt.app/Contents/Frameworks/
+        ln -s libboost_system.dylib libboost_system-mt.dylib        
+
 5.  Installation into user directories (optional):
 
         make install
@@ -216,4 +223,3 @@ build process to remain somewhat deterministic. Here's how it works:
   using the script that is also included there. Detached signatures are available from this [repository](https://github.com/bitcoin-core/bitcoin-detached-sigs).
 - Builders feed the unsigned app + detached signature back into Gitian. It
   uses the pre-built tools to recombine the pieces into a deterministic dmg.
-
