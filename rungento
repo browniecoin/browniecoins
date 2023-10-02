@@ -1,9 +1,16 @@
 #!/bin/bash
 
-# My first script
-while [ 1 ]
+# Check if a wallet address argument is provided
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <wallet_address>"
+  exit 1
+fi
+
+wallet_address="$1"
+
+while true
 do
-        echo "Hello World!"
-        ./brownie-cli generatetoaddress 1000 BHZ5prmHkzfFQ8ZaxXp7JTPPRhLtK97v5U
-        sleep 60
+  echo "Running Brownie Coin Miner"
+  ./brownie-cli generatetoaddress 1000 "$wallet_address"
+  sleep 60
 done

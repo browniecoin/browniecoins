@@ -17,6 +17,13 @@ the usage of the absolute path.
 To Build
 ---------------------
 
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
+
+export BDB_PREFIX='/root/browniecoins/db4'
+./configure BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"
+
 ```bash
 ./autogen.sh
 ./configure
