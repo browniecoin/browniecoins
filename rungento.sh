@@ -9,7 +9,8 @@ fi
 wallet_address="$1"
 
 #./src/brownied -printtoconsole -conf=/browniecoins/brownie.conf &
-./src/brownied -conf=/browniecoins/brownie.conf 
+#./src/brownied -conf=/browniecoins/brownie.conf
+nohup ./src/brownied -conf=/browniecoins/brownie.conf > brownied.log 2>&1 &
 
 while true
 do
