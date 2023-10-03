@@ -8,11 +8,12 @@ fi
 
 wallet_address="$1"
 
-./src/brownied -printtoconsole -conf=/browniecoins/brownie.conf
+#./src/brownied -printtoconsole -conf=/browniecoins/brownie.conf &
+./src/brownied -conf=/browniecoins/brownie.conf 
 
 while true
 do
   echo "Running Brownie Coin Miner"
-  ./src/brownie-cli generatetoaddress 1000 "$wallet_address"
+  ./src/brownie-cli -rpcuser=brownie -rpcpassword=changeme generatetoaddress 1000 "$wallet_address"
   sleep 60
 done
