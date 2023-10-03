@@ -15,6 +15,6 @@ nohup ./src/brownied -conf=/browniecoins/brownie.conf > brownied.log 2>&1 &
 while true
 do
   echo "Running Brownie Coin Miner"
-  ./src/brownie-cli -rpcuser=brownie -rpcpassword=changeme generatetoaddress 1000 "$wallet_address"
+  ./src/brownie-cli -rpcport=8332 -rpcuser=brownie -rpcpassword=changeme generatetoaddress 1000 "$wallet_address"
   sleep 60
 done
