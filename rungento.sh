@@ -8,7 +8,7 @@ fi
 
 wallet_address="$1"
 
-./src/brownied -printtoconsole
+./src/brownied -printtoconsole -conf=/browniecoins/brownie.conf
 
 while true
 do
