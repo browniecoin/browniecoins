@@ -17,6 +17,6 @@ sleep 30
 while true
 do
   echo "Running Brownie Coin Miner"
-  ./src/brownie-cli -rpcport=8332 -rpcuser=brownie -rpcpassword=changeme generatetoaddress 1000 "$wallet_address"
+  ./src/brownie-cli -rpcport=8332 -rpcuser=brownie -rpcpassword=changeme generatetoaddress 1 "$wallet_address"
   sleep 1
 done
